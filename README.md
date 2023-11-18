@@ -1,12 +1,10 @@
 # KNN Classification
 
-
 This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data classification, primarily focusing on identifying survivors of the Titanic shipwreck. The approach encompasses an initial phase of exploratory analysis, followed by the application of KNN, the use of validation techniques, and ultimately, hyperparameter optimization. This comprehensive approach will enable a deeper and more effective understanding of the survival prediction task in the context of the Titanic dataset.
 
 
-![vist Card](https://cdn.discordapp.com/attachments/1173750582092251139/1173750628049223680/462214b129e4860466cee98ab50b3793.jpg?ex=65651774&is=6552a274&hm=9b132593f08df3d629cc2c9db5c0afa627d69a5f38abca13cbd79a11415d7d3d&)
+![vist Card](https://cdn.discordapp.com/attachments/1173750582092251139/1175485464438907111/titanic.webp?ex=656b6726&is=6558f226&hm=96ea5d19025c1c1a4982cf0a8a8964f7d8fd94711f1d9009a6af9e362bc83d63&)
 
-  
 
 ## Table of Contents
 
@@ -16,7 +14,7 @@ This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data cl
 
 - [3. Action Plan](#3-Action-Plan)
 
-- [4. Data Insights](#4-Data-Insights)
+- [4. Exploratory Data Analysis](#4-Exploratory-Data-Analysis)
 
 - [5. Machine Learning Metrics](#5-Machine-Learning-Metrics)
 
@@ -70,19 +68,13 @@ The **Test** naming dictionary is as follows:
 
 ## 3. Action Plan
 
-  
-
 ### 3.1. Objective
 
 After completing the project of exploratory analysis and implementation of [KNN in the Wine database](https://github.com/lfaferreira/knn-wine), I decided to further deepen the use of this model by incorporating more sophisticated techniques. This repository aims to explore the capabilities of the KNN algorithm, focusing on optimization and enhancement to solve the Titanic problem.
 
-  
-
 ### 3.2. Tools and Frameworks
 
 Scope of tools used in the project:
-
-  
 
 - Python 3.11.5
 
@@ -99,14 +91,82 @@ Scope of tools used in the project:
 - Machine Learning Classification Model (KNN)
 
   
-## 4. Data Insights
-loading...
+## 4.  Exploratory Data Analysis
 
-## 5. Machine Learning Metrics
-loading...
+### 4.1 - General Train Dataset
+- **Features:** 12 (including the target)
+- **Labels:** 891
+- **Numeric data types:** float64, int64
+- **Categorical data types:** object    
+- **Missing values total:** 866
+- **No duplicate values**
+- **Target contains 2 options:** 0, 1 (int64)
 
-## 6. Results
-loading...
+
+### 4.2 - Missing values
+- **Age:** has 19.87% missing data that will be redefined with the median age
+- **Cabin:** has 77.11% missing data, which makes it a great candidate to be removed. But this data will be grouped and transformed into numbers.
+- **Embarked:** has only 0.23% missing data, which will be removed.
+
+
+### 4.3 - Correlation
+- The **highest correlation** in the dataset is between the features **Parch** and **Sibsp.** Both features are about family relationships, which at first glance justifies this relationship.
+- The **lowest correlation** in the dataset is between the features **Pclass** and **Fare.** At first glance, it's strange to understand how passenger fare data has such a low correlation with socio-economic status.
+
+
+### 4.4 - Outliers
+There are outliers in **4 features** of the dataset. I usually remove them, especially when the models used are sensitive to them. The percentage of outliers per feature is:
+- **Parch:** 23.91% 
+- **Fare:** 13.02%
+- **SibSp:** 5.16%
+- **Age:** 1.23%
+
+
+### 4.5 - Create Features
+- **Sex:** Will be given numerical values for their respective categories
+- **Cabin:** Will be given numerical values for their respective categories and be grouped by the first letter
+
+
+### 4.6 - Drop Features
+- **Name:** I believe that the only use here would be to take the titles and input numerical values into them
+- **Ticket:** There is a high degree of variation and dispersion in this data. I don't see much use in them, maybe group them together in some way and check for some relationship with the tariff
+- **Embarked:** The missing values
+
+
+### 4.7 - Normalization and Standardization
+- The decisive factor in rescaling the data is the **exclusive use of the KNN model.** It is extremely sensitive to **discrepant scales, outliers and prefers normalized data.**
+- There is a need to rescale the data because the range of the data goes from **0 to 512.33**
+- Most numerical data does not follow a normal distribution. This corroborates the fact that data must be standardized in order to bring it as close as possible to its original state.
+- **But focusing on the best use of the KNN model, I will use normalization.**
+
+## 5. Machine Learning Exploration
+
+### 5.1 - With Outliers Dataset
+- The model performances on the test dataset seem to decrease slightly as the number of neighbors increases.
+- The F1 Score, which balances precision and recall, ranges from 0.775453 to 0.796534.
+- On the training dataset, the scores are higher, indicating potential overfitting, especially with a smaller number of neighbors.
+
+
+### 5.2 - Without Outliers Dataset
+- The model performances on the test dataset are generally better compared to the dataset with outliers.
+- The F1 Score ranges from 0.816000 to 0.821941, indicating better balance between precision and recall.
+- On the training dataset, the scores are still relatively high, suggesting good performance, and they are closer to the test scores compared to the dataset with outliers.
+
+
+### 5.3 - Neighbor Selection
+- It seems that using 5 neighbors gives good results for both datasets (e.g., 0.789238 to 0.826667 for the test dataset).
+- Selecting an appropriate number of neighbors is crucial; too few neighbors might lead to overfitting, while too many might result in underfitting.
+
+
+### 5.4 - Effect of Outliers
+- The comparison between the results with and without outliers suggests that removing outliers improves the model performance, particularly in terms of F1 Score.
+
+
+## 6. Submissions Results
+
+|Submissions|Kaggle Score|Top Percentage|Position         |Model Submissions Score|Train Score|Train Precision|Train Recall|Train F1  |
+|-----------|------------|--------------|-----------------|-----------------------|-----------|---------------|------------|----------|
+|1st        |0.74401     |Top 90%       |13768 of 15337   |84.11%                 |85.04%     |84.75%         |85.05%      |84.71%    |
 
 ## 7. Conclusion
 loading...
