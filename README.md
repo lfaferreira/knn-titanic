@@ -164,9 +164,10 @@ There are outliers in **4 features** of the dataset. I usually remove them, espe
 
 ## 6. Submissions Results
 
-|Submissions|Kaggle Score|Top Percentage|Position         |Model Submissions Score|Train Score|Train Precision|Train Recall|Train F1  |
-|-----------|------------|--------------|-----------------|-----------------------|-----------|---------------|------------|----------|
-|1st        |0.74401     |Top 90%       |13768 of 15337   |84.11%                 |85.04%     |84.75%         |85.05%      |84.71%    |
+|Submissions|Kaggle Submissions Score|Top Percentage|Position         |Model Score|Train Score|Train Precision|Train Recall|Train F1  |
+|-----------|------------------------|--------------|-----------------|-----------|-----------|---------------|------------|----------|
+|1st        |0.74401                 |Top 90%       |13768 of 15337   |84.11%     |85.04%     |84.75%         |85.05%      |84.71%    |
+|2nd        |0.76076                 |Top 83%       |12639 of 15337   |85.12%     |84.82%     |84.51%         |84.82%      |84.47%    |
 
 ## 7. Conclusion
 loading...
