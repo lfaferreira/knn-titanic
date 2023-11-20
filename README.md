@@ -115,11 +115,11 @@ Scope of tools used in the project:
 
 
 ### 4.4 - Outliers
-There are outliers in **4 features** of the dataset. I usually remove them, especially when the models used are sensitive to them. The percentage of outliers per feature is:
-- **Parch:** 23.91% 
-- **Fare:** 13.02%
-- **SibSp:** 5.16%
-- **Age:** 1.23%
+- There are outliers in **4 features** of the dataset. I usually remove them, especially when the models used are sensitive to them. The percentage of outliers per feature is:
+  - **Parch** = 23.91% 
+  - **Fare** = 13.02%
+  - **SibSp** = 5.16%
+  - **Age** = 1.23%
 
 
 ### 4.5 - Create Features
