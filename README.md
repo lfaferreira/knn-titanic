@@ -8,27 +8,27 @@ This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data cl
 
 ## Table of Contents
 
-- [1. Introduction](#1-Introduction)
+- [1 - Introduction](#1-Introduction)
 
-- [2. Data Understanding](#2-Data-Understanding)
+- [2 - Data Understanding](#2-Data-Understanding)
 
-- [3. Action Plan](#3-Action-Plan)
+- [3 - Action Plan](#3-Action-Plan)
 
-- [4. Exploratory Data Analysis](#4-Exploratory-Data-Analysis)
+- [4 - Exploratory Data Analysis](#4-Exploratory-Data-Analysis)
 
-- [5. Machine Learning Metrics](#5-Machine-Learning-Metrics)
+- [5 - Machine Learning Exploration](#5-Machine-Learning-Exploration)
 
-- [6. Results](#6-Results)
+- [6 - Submissions Results](#6-Submissions-Results)
 
-- [7. Conclusion](#5-Conclusion)
+- [7 - Conclusion](#5-Conclusion)
   
   
 
-## 1. Introduction
+## 1 - Introduction
 This project aims to conduct an **exploratory** analysis of the Titanic data set and employ the **KNN (K-Nearest Neighbors)** model to classify the survivors of the shipwreck. The widely recognized **Titanic** dataset is available at **[Kaggle](https://www.kaggle.com/c/titanic/data)**, **[Stanford](https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html)** and also at **[Department of Biostatistics](https://hbiostat.org/data/)**. Despite being a simple dataset, designed for studies and focused on solving a single question, it is possible to apply advanced data analysis techniques, extract insights and knowledge in a similar way to what would be done in more complex and challenging datasets.
   
 
-## 2. Data Understanding
+## 2 - Data Understanding
 
 The Titanic dataset, available on **Kaggle**, is divided into **train** and **test** files. The train file comprises 891 labels and 12 features, while the test file contains 418 labels and 11 features. The data is categorized into numeric and categorical types, and there are no instances of duplicate or missing values. 
 
@@ -66,13 +66,13 @@ The **Test** naming dictionary is as follows:
 | Embarked     | Port of embarkation (C, Q, S)       | object      |
 
 
-## 3. Action Plan
+## 3 - Action Plan
 
-### 3.1. Objective
+### 3.1 - Objective
 
 After completing the project of exploratory analysis and implementation of [KNN in the Wine database](https://github.com/lfaferreira/knn-wine), I decided to further deepen the use of this model by incorporating more sophisticated techniques. This repository aims to explore the capabilities of the KNN algorithm, focusing on optimization and enhancement to solve the Titanic problem.
 
-### 3.2. Tools and Frameworks
+### 3.2 - Tools and Frameworks
 
 Scope of tools used in the project:
 
@@ -91,7 +91,7 @@ Scope of tools used in the project:
 - Machine Learning Classification Model (KNN)
 
   
-## 4.  Exploratory Data Analysis
+## 4 - Exploratory Data Analysis
 
 ### 4.1 - General Train Dataset
 - **Features:** 12 (including the target)
@@ -139,7 +139,7 @@ Scope of tools used in the project:
 - Most numerical data does not follow a normal distribution. This corroborates the fact that data must be standardized in order to bring it as close as possible to its original state.
 - **But focusing on the best use of the KNN model, I will use normalization.**
 
-## 5. Machine Learning Exploration
+## 5 - Machine Learning Exploration
 
 ### 5.1 - With Outliers Dataset
 - The model performances on the test dataset seem to decrease slightly as the number of neighbors increases.
@@ -162,12 +162,12 @@ Scope of tools used in the project:
 - The comparison between the results with and without outliers suggests that removing outliers improves the model performance, particularly in terms of F1 Score.
 
 
-## 6. Submissions Results
+## 6 - Submissions Results
 
 |Submissions|Kaggle Submissions Score|Top Percentage|Position         |Model Score|Train Score|Train Precision|Train Recall|Train F1  |
 |-----------|------------------------|--------------|-----------------|-----------|-----------|---------------|------------|----------|
 |1st        |0.74401                 |Top 90%       |13768 of 15337   |84.11%     |85.04%     |84.75%         |85.05%      |84.71%    |
 |2nd        |0.76076                 |Top 83%       |12639 of 15337   |85.12%     |84.82%     |84.51%         |84.82%      |84.47%    |
 
-## 7. Conclusion
+## 7 - Conclusion
 loading...
