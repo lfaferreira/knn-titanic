@@ -164,10 +164,15 @@ Scope of tools used in the project:
 
 ## 6 - Submissions Results
 
-|Submissions|Kaggle Submissions Score|Top Percentage|Position         |Model Score|Train Score|Train Precision|Train Recall|Train F1  |
-|-----------|------------------------|--------------|-----------------|-----------|-----------|---------------|------------|----------|
-|1st        |0.74401                 |Top 90%       |13768 of 15337   |84.11%     |85.04%     |84.75%         |85.05%      |84.71%    |
-|2nd        |0.76076                 |Top 83%       |12639 of 15337   |85.12%     |84.82%     |84.51%         |84.82%      |84.47%    |
+|Submissions|Kaggle Submissions Score|Top Percentage|Position      |Accuracy Score|Train Score|Train Precision|Train Recall|Train F1  |
+|-----------|------------------------|--------------|--------------|--------------|-----------|---------------|------------|----------|
+|1st        |0.74401                 |Top 90%       |13768 of 15348|82.67%        |85.04%     |84.75%         |85.05%      |84.71%    |
+|2nd        |0.76076                 |Top 83%       |12639 of 15348|83.33%        |84.82%     |84.51%         |84.82%      |84.47%    |
+|3rd        |0.76555                 |Top 79%       |12010 of 15362|83.33%        |84.82%     |84.51%         |84.82%      |84.47%    |
+
+
+### 6.1 - Observations
+- The **first** and **second** subimissions were training the final model differently from the third onwards. In this case, I wasn't using train_test_split to train the model that would make the final prediction and I was training the model with the complete base. That's why the second and third submissions have the same model status but different placements in Kaggle.
 
 ## 7 - Conclusion
 loading...
