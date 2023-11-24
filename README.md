@@ -127,12 +127,12 @@ Scope of tools used in the project:
 ### 4.5 - Create Features
 - **Sex:** Will be given numerical values for their respective categories
 - **Cabin:** Will be given numerical values for their respective categories and be grouped by the first letter
-
+- **Cabin:** Will receive numerical values for their respective categories and will be grouped by the first letter. Missing values will be set to "N"
+- **Name:** I believe the only use here would be to take the titles and insert numerical values into them
+- **Boarders:** They will receive numerical values for their respective categories
 
 ### 4.6 - Drop Features
-- **Name:** I believe that the only use here would be to take the titles and input numerical values into them
 - **Ticket:** There is a high degree of variation and dispersion in this data. I don't see much use in them, maybe group them together in some way and check for some relationship with the tariff
-- **Embarked:** The missing values
 
 
 ### 4.7 - Normalization and Standardization
@@ -145,13 +145,13 @@ Scope of tools used in the project:
 
 ### 5.1 - With Outliers Dataset
 - The model performances on the test dataset seem to decrease slightly as the number of neighbors increases.
-- The F1 Score, which balances precision and recall, ranges from 0.775453 to 0.796534.
+- The F1 Score, which balances precision and recall, ranges from **0.774292** to **0.795999** in train dataset and ranges from **0.825528** to **0.866613** in test dataset.
 - On the training dataset, the scores are higher, indicating potential overfitting, especially with a smaller number of neighbors.
 
 
 ### 5.2 - Without Outliers Dataset
 - The model performances on the test dataset are generally better compared to the dataset with outliers.
-- The F1 Score ranges from 0.816000 to 0.821941, indicating better balance between precision and recall.
+- The F1 Score, which balances precision and recall, ranges from **0.827385** to **0.828747** in train dataset and ranges from **0.816357** to **0.841127** in test dataset.
 - On the training dataset, the scores are still relatively high, suggesting good performance, and they are closer to the test scores compared to the dataset with outliers.
 
 
@@ -161,37 +161,35 @@ Scope of tools used in the project:
 
 
 ### 5.4 - Effect of Outliers
-- The comparison between the results with and without outliers suggests that removing outliers improves the model performance, particularly in terms of F1 Score.
-
+- It seems that using 5 neighbors of without outliers gives good results for both datasets (e.g., **0.833809** to **0.838452** for the test dataset).
+- Selecting an appropriate number of neighbors is crucial; too few neighbors might lead to overfitting, while too many might result in underfitting.
 
 ## 6 - Submissions Results
+After optimizing the model with the **GridSearchCV** algorithm, the best KNN submission results were:
 
-|Submissions|Kaggle Submissions Score|Top Percentage|Position      |Accuracy Score|Train Score|Train Precision|Train Recall|Train F1  |
-|-----------|------------------------|--------------|--------------|--------------|-----------|---------------|------------|----------|
-|1st        |0.74401                 |Top 90%       |13768 of 15348|82.67%        |85.04%     |84.75%         |85.05%      |84.71%    |
-|2nd        |0.76076                 |Top 83%       |12639 of 15348|83.33%        |84.82%     |84.51%         |84.82%      |84.47%    |
-|3rd        |0.76555                 |Top 79%       |12010 of 15362|83.33%        |84.82%     |84.51%         |84.82%      |84.47%    |
-
-
-### 6.1 - Observations
-- The **first** and **second** subimissions were training the final model differently from the third onwards. In this case, I wasn't using train_test_split to train the model that would make the final prediction and I was training the model with the complete base. That's why the second and third submissions have the same model status but different placements in Kaggle.
+| Model                  | Precision | Recall | F1-Score | Accuracy | Mean - CV | Std - CV | Range - CV    | Kaggle Result |
+| ---------------------- | ----------| ------ | -------- | -------- | --------- | -------- | --------------| ------------- |
+| KNN - Without Outliers | 78.34     | 69.10  | 73.43    | 85.12    | 81.28     | 6.50     | [74.78, 87.77]| 0.76555       |
+| KNN - With    Outliers | 83.54     | 78.65  | 81.02    | 85.86    | 81.71     | 5.04     | [76.67, 86.75]| 0.74880       |
 
 
 ## 7 - Model Comparison
-| Model                           | Accuracy Score | Model Score |
-|---------------------------------|-----------------|-------------|
-| Logistic Regression             | 84.0%           | 80.36%      |
-| Support Vector Machines         | 83.33%          | 81.7%       |
-| KNN                             | 83.33%          | 84.82%      |
-| Linear SVC                      | 82.67%          | 80.58%      |
-| Random Forest                   | 82.0%           | 98.44%      |
-| Stochastic Gradient Descent     | 82.0%           | 81.03%      |
-| Naive Bayes                     | 80.67%          | 77.68%      |
-| Gradient Boosting Classifier    | 80.0%           | 91.07%      |
-| Perceptron                       | 78.67%          | 79.24%      |
-| Decision Tree                    | 72.0%           | 98.44%      |
+In order to understand the model's performance and how it behaved, I compared knn's results with those of the Gradient Boosting Classifier model.
 
+| Model                  | Precision | Recall | F1-Score | Accuracy | Mean - CV | Std - CV | Range - CV    | Kaggle Result |
+| ---------------------- | ----------| ------ | -------- | -------- | --------- | -------- | --------------| ------------- |
+| KNN - Without Outliers | 78.34     | 69.10  | 73.43    | 85.12    | 81.28     | 6.50     | [74.78, 87.77]| 0.76555       |
+| KNN - With    Outliers | 83.54     | 78.65  | 81.02    | 85.86    | 81.71     | 5.04     | [76.67, 86.75]| 0.74880       |
+| GBC - Without Outliers | 88.24     | 75.84  | 81.57    | 89.80    | 81.26     | 4.43     | [76.83, 85.69]| 0.76076       |
+| GBC - With    Outliers | 95.58     | 88.60  | 91.96    | 94.05    | 83.51     | 5.24     | [78.27, 88.75]| 0.72727       |
 
 
 ## 8 - Conclusion
-loading...
+
+Although the Gradient Boosting Classifier (GBC) is often considered more robust than K-Nearest Neighbors (KNN), in this specific context, **KNN has shown remarkable adaptability to Kaggle's evaluation criteria (0.7655 x 0.76076)**. This effectiveness can be attributed to carefully adjusted transformations in the original dataset, optimized specifically for the KNN algorithm.
+
+It is worth noting that among the evaluated models, only KNN, **without the presence of outliers**, produced Kaggle results consistent with the cross-validation range. This emphasizes the importance of data transformations specific to KNN. Interestingly, the inclusion of outliers in the KNN model resulted in Kaggle performance beyond expectations, reinforcing the idea that the presence of outliers can significantly impact KNN performance, possibly explaining the observed discrepancy in this case.
+
+Another point to consider in explaining KNN's superior performance compared to GBC in Kaggle metrics is the possibility of overfitting in GBC. It is observed that in GBC, metrics such as **Precision, Recall, F1-Score, and Accuracy** were higher than those of KNN, indicating that GBC may not have generalized well to data beyond that used in training.
+
+In conclusion, while GBC is recognized as a powerful model, the highlighted performance of KNN on the Kaggle platform underscores the importance of careful data preprocessing and consideration of specific dataset characteristics to achieve optimized model performance.
