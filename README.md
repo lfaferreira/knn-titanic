@@ -20,7 +20,9 @@ This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data cl
 
 - [6 - Submissions Results](#6-Submissions-Results)
 
-- [7 - Conclusion](#5-Conclusion)
+- [7 - Models Comparison](#7-Models-Comparison)
+
+- [8 - Conclusion](#8-Conclusion)
   
   
 
@@ -174,5 +176,22 @@ Scope of tools used in the project:
 ### 6.1 - Observations
 - The **first** and **second** subimissions were training the final model differently from the third onwards. In this case, I wasn't using train_test_split to train the model that would make the final prediction and I was training the model with the complete base. That's why the second and third submissions have the same model status but different placements in Kaggle.
 
-## 7 - Conclusion
+
+## 7 - Model Comparison
+| Model                           | Accuracy Score | Model Score |
+|---------------------------------|-----------------|-------------|
+| Logistic Regression             | 84.0%           | 80.36%      |
+| Support Vector Machines         | 83.33%          | 81.7%       |
+| KNN                             | 83.33%          | 84.82%      |
+| Linear SVC                      | 82.67%          | 80.58%      |
+| Random Forest                   | 82.0%           | 98.44%      |
+| Stochastic Gradient Descent     | 82.0%           | 81.03%      |
+| Naive Bayes                     | 80.67%          | 77.68%      |
+| Gradient Boosting Classifier    | 80.0%           | 91.07%      |
+| Perceptron                       | 78.67%          | 79.24%      |
+| Decision Tree                    | 72.0%           | 98.44%      |
+
+
+
+## 8 - Conclusion
 loading...
