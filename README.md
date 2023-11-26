@@ -90,7 +90,14 @@ Scope of tools used in the project:
 
 - Numpy
 
-- Machine Learning Classification Model (KNN)
+- Scipy
+
+- Scikit-Learn
+
+- Machine Learning Classification Model
+  - K-Nearest Neighbors
+  - Gradient Boosting Classifier
+
 
   
 ## 4 - Exploratory Data Analysis
