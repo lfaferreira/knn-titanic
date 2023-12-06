@@ -8,21 +8,21 @@ This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data cl
 
 ## Table of Contents
 
-- [1 - Introduction](#1-Introduction)
+- [1 - Introduction](#1-introduction)
 
-- [2 - Data Understanding](#2-Data-Understanding)
+- [2 - Data Understanding](#2-data-understanding)
 
-- [3 - Action Plan](#3-Action-Plan)
+- [3 - Action Plan](#3-action-plan)
 
-- [4 - Exploratory Data Analysis](#4-Exploratory-Data-Analysis)
+- [4 - Exploratory Data Analysis](#4-exploratory-data-analysis)
 
-- [5 - Machine Learning Exploration](#5-Machine-Learning-Exploration)
+- [5 - Machine Learning Exploration](#5-machine-learning-exploration)
 
-- [6 - Submissions Results](#6-Submissions-Results)
+- [6 - Submissions Results](#6-submissions-results)
 
-- [7 - Models Comparison](#7-Models-Comparison)
+- [7 - Models Comparison](#7-models-comparison)
 
-- [8 - Conclusion](#8-Conclusion)
+- [8 - Conclusion](#8-conclusion)
   
   
 
