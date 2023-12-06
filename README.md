@@ -8,29 +8,29 @@ This project aims to utilize the K-Nearest Neighbors (KNN) algorithm for data cl
 
 ## Table of Contents
 
-- [1 - Introduction](#1-introduction)
+- [1. Introduction](#1-introduction)
 
-- [2 - Data Understanding](#2-data-understanding)
+- [2. Data Understanding](#2-data-understanding)
 
-- [3 - Action Plan](#3-action-plan)
+- [3. Action Plan](#3-action-plan)
 
-- [4 - Exploratory Data Analysis](#4-exploratory-data-analysis)
+- [4. Exploratory Data Analysis](#4-exploratory-data-analysis)
 
-- [5 - Machine Learning Exploration](#5-machine-learning-exploration)
+- [5. Machine Learning Exploration](#5-machine-learning-exploration)
 
-- [6 - Submissions Results](#6-submissions-results)
+- [6. Submissions Results](#6-submissions-results)
 
-- [7 - Models Comparison](#7-models-comparison)
+- [7. Model Comparison](#7-model-comparison)
 
-- [8 - Conclusion](#8-conclusion)
+- [8. Conclusion](#8-conclusion)
   
   
 
-## 1 - Introduction
+## 1. Introduction
 This project aims to conduct an **exploratory** analysis of the Titanic data set and employ the **KNN (K-Nearest Neighbors)** model to classify the survivors of the shipwreck. The widely recognized **Titanic** dataset is available at **[Kaggle](https://www.kaggle.com/c/titanic/data)**, **[Stanford](https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html)** and also at **[Department of Biostatistics](https://hbiostat.org/data/)**. Despite being a simple dataset, designed for studies and focused on solving a single question, it is possible to apply advanced data analysis techniques, extract insights and knowledge in a similar way to what would be done in more complex and challenging datasets.
   
 
-## 2 - Data Understanding
+## 2. Data Understanding
 
 The Titanic dataset, available on **Kaggle**, is divided into **train** and **test** files. The train file comprises 891 labels and 12 features, while the test file contains 418 labels and 11 features. The data is categorized into numeric and categorical types, and there are no instances of duplicate or missing values. 
 
@@ -68,13 +68,13 @@ The **Test** naming dictionary is as follows:
 | Embarked     | Port of embarkation (C, Q, S)       | object      |
 
 
-## 3 - Action Plan
+## 3. Action Plan
 
-### 3.1 - Objective
+### 3.1. Objective
 
 After completing the project of exploratory analysis and implementation of [KNN in the Wine database](https://github.com/lfaferreira/knn-wine), I decided to further deepen the use of this model by incorporating more sophisticated techniques. This repository aims to explore the capabilities of the KNN algorithm, focusing on optimization and enhancement to solve the Titanic problem.
 
-### 3.2 - Tools and Frameworks
+### 3.2. Tools and Frameworks
 
 Scope of tools used in the project:
 
@@ -100,9 +100,9 @@ Scope of tools used in the project:
 
 
   
-## 4 - Exploratory Data Analysis
+## 4. Exploratory Data Analysis
 
-### 4.1 - General Train Dataset
+### 4.1. General Train Dataset
 - **Features:** 12 (including the target)
 - **Labels:** 891
 - **Numeric data types:** float64, int64
@@ -112,18 +112,18 @@ Scope of tools used in the project:
 - **Target contains 2 options:** 0, 1 (int64)
 
 
-### 4.2 - Missing values
+### 4.2. Missing values
 - **Age:** has 19.87% missing data that will be redefined with the median age
 - **Cabin:** has 77.11% missing data, which makes it a great candidate to be removed. But this data will be grouped and transformed into numbers.
 - **Embarked:** has only 0.23% missing data, which will be removed.
 
 
-### 4.3 - Correlation
+### 4.3. Correlation
 - The **highest correlation** in the dataset is between the features **Parch** and **Sibsp.** Both features are about family relationships, which at first glance justifies this relationship.
 - The **lowest correlation** in the dataset is between the features **Pclass** and **Fare.** At first glance, it's strange to understand how passenger fare data has such a low correlation with socio-economic status.
 
 
-### 4.4 - Outliers
+### 4.4. Outliers
 - There are outliers in **4 features** of the dataset. I usually remove them, especially when the models used are sensitive to them. The percentage of outliers per feature is:
   - **Parch** = 23.91% 
   - **Fare** = 13.02%
@@ -131,47 +131,47 @@ Scope of tools used in the project:
   - **Age** = 1.23%
 
 
-### 4.5 - Create Features
+### 4.5. Create Features
 - **Sex:** Will be given numerical values for their respective categories
 - **Cabin:** Will be given numerical values for their respective categories and be grouped by the first letter
 - **Cabin:** Will receive numerical values for their respective categories and will be grouped by the first letter. Missing values will be set to "N"
 - **Name:** I believe the only use here would be to take the titles and insert numerical values into them
 - **Boarders:** They will receive numerical values for their respective categories
 
-### 4.6 - Drop Features
+### 4.6. Drop Features
 - **Ticket:** There is a high degree of variation and dispersion in this data. I don't see much use in them, maybe group them together in some way and check for some relationship with the tariff
 
 
-### 4.7 - Normalization and Standardization
+### 4.7. Normalization and Standardization
 - The decisive factor in rescaling the data is the **exclusive use of the KNN model.** It is extremely sensitive to **discrepant scales, outliers and prefers normalized data.**
 - There is a need to rescale the data because the range of the data goes from **0 to 512.33**
 - Most numerical data does not follow a normal distribution. This corroborates the fact that data must be standardized in order to bring it as close as possible to its original state.
 - **But focusing on the best use of the KNN model, I will use normalization.**
 
-## 5 - Machine Learning Exploration
+## 5. Machine Learning Exploration
 
-### 5.1 - With Outliers Dataset
+### 5.1. With Outliers Dataset
 - The model performances on the test dataset seem to decrease slightly as the number of neighbors increases.
 - The F1 Score, which balances precision and recall, ranges from **0.774292** to **0.795999** in train dataset and ranges from **0.825528** to **0.866613** in test dataset.
 - On the training dataset, the scores are higher, indicating potential overfitting, especially with a smaller number of neighbors.
 
 
-### 5.2 - Without Outliers Dataset
+### 5.2. Without Outliers Dataset
 - The model performances on the test dataset are generally better compared to the dataset with outliers.
 - The F1 Score, which balances precision and recall, ranges from **0.827385** to **0.828747** in train dataset and ranges from **0.816357** to **0.841127** in test dataset.
 - On the training dataset, the scores are still relatively high, suggesting good performance, and they are closer to the test scores compared to the dataset with outliers.
 
 
-### 5.3 - Neighbor Selection
+### 5.3. Neighbor Selection
 - It seems that using 5 neighbors gives good results for both datasets (e.g., 0.789238 to 0.826667 for the test dataset).
 - Selecting an appropriate number of neighbors is crucial; too few neighbors might lead to overfitting, while too many might result in underfitting.
 
 
-### 5.4 - Effect of Outliers
+### 5.4. Effect of Outliers
 - It seems that using 5 neighbors of without outliers gives good results for both datasets (e.g., **0.833809** to **0.838452** for the test dataset).
 - Selecting an appropriate number of neighbors is crucial; too few neighbors might lead to overfitting, while too many might result in underfitting.
 
-## 6 - Submissions Results
+## 6. Submissions Results
 After optimizing the model with the **GridSearchCV** algorithm, the best KNN submission results were:
 
 | Model                  | Precision | Recall | F1-Score | Accuracy | Mean - CV | Std - CV | Range - CV    | Kaggle Result |
@@ -180,7 +180,7 @@ After optimizing the model with the **GridSearchCV** algorithm, the best KNN sub
 | KNN - With    Outliers | 83.54     | 78.65  | 81.02    | 85.86    | 81.71     | 5.04     | [76.67, 86.75]| 0.74880       |
 
 
-## 7 - Model Comparison
+## 7. Model Comparison
 In order to understand the model's performance and how it behaved, I compared knn's results with those of the Gradient Boosting Classifier model.
 
 | Model                  | Precision | Recall | F1-Score | Accuracy | Mean - CV | Std - CV | Range - CV    | Kaggle Result |
@@ -191,7 +191,7 @@ In order to understand the model's performance and how it behaved, I compared kn
 | GBC - With    Outliers | 95.58     | 88.60  | 91.96    | 94.05    | 83.51     | 5.24     | [78.27, 88.75]| 0.72727       |
 
 
-## 8 - Conclusion
+## 8. Conclusion
 
 Although the Gradient Boosting Classifier (GBC) is often considered more robust than K-Nearest Neighbors (KNN), in this specific context, **KNN has shown remarkable adaptability to Kaggle's evaluation criteria (0.7655 x 0.76076)**. This effectiveness can be attributed to carefully adjusted transformations in the original dataset, optimized specifically for the KNN algorithm.
 
